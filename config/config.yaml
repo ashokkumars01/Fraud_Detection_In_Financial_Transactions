@@ -1,0 +1,21 @@
+config_file_yaml:
+  config_file_name: config.yaml
+  config_folder_name: config
+
+artifactory:
+  artifact_dir: artifact
+
+data_ingestion_config:
+  dataset_file_name: creditcard.csv
+  dataset_folder_name: dataset
+  new_dataset_folder_name: data_ingestion
+  train_test_data: train_test_split
+  train_dir: train
+  test_dir: test
+
+data_validation_config:
+  report_file_name: report.json
+  report_page_file_name: report.html
+  data_validation_folder: data_validation
+
+
