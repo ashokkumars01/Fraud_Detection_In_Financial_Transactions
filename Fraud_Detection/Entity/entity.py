@@ -10,6 +10,10 @@ DataIngestionConfig = namedtuple("DataIngestionConfig", ['dataset_file_name', 'd
 
 DataValidationConfig = namedtuple("DataValidationConfig", ["report_file_name", "report_page_file_name", "data_validation_folder"])
 
+DataTransformationConfig = namedtuple("DataTransformationConfig",["preprocessing_dir", "preprocessed_object_file_name", "data_transformation_artifact_dir"])
+
+ModelTrainerConfig = namedtuple("ModelTrainerConfig",["model_trainer_artifact_dir", "model_dir", "model_trainer_object_file_name"])
+
 Artifactory = namedtuple("Artifactory",['artifact_dir'])
 
 

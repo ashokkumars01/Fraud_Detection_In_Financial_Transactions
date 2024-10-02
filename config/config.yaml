@@ -16,6 +16,17 @@ data_ingestion_config:
 data_validation_config:
   report_file_name: report.json
   report_page_file_name: report.html
-  data_validation_folder: data_validation
+  data_validation_folder: data_validation_artifact
+
+data_transformation_config:
+  preprocessing_dir: preprocessed
+  preprocessed_object_file_name: preprocessed.pkl
+  data_transformation_artifact_dir: data_transformation_artifact 
+
+model_trainer_config:
+  model_trainer_artifact_dir: model_trainer_artifact
+  model_dir: train_model
+  model_trainer_object_file_name: fraud_detection_model.pkl
+
 
 

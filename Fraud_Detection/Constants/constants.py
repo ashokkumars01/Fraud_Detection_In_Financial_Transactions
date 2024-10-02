@@ -27,6 +27,18 @@ DATA_VALIDATION_REPORT_FILE_NAME_CONFIG_KEY = "report_file_name"
 DATA_VALIDATION_REPORT_PAGE_FILE_NAME_CONFIG_KEY = "report_page_file_name"
 DATA_VALIDATION_FOLDER_CONFIG_KEY = "data_validation_folder"
 
+# Data Transformation Related Variables
+DATA_TRANSFORMATION_CONFIG_KEY = "data_transformation_config"
+DATA_TRANSFORMAATION_PREPROCESSED_DIR_CONFIG_KEY = "preprocessing_dir"
+DATA_TRANSFORMATION_PREPROCESSED_OBJECT_FILE_NAME = "preprocessed_object_file_name"
+DATA_TRANSFORMATION_ARTIFACT_DIR_CONFIG_KEY = "data_transformation_artifact_dir"
+
+# Model Trainer Related Variables
+MODEL_TRAINER_CONFIG_KEY = "model_trainer_config"
+MODEL_TRAINER_ARTIFACT_DIR_CONFIG_KEY = "model_trainer_artifact_dir"
+MODEL_TRAINER_DIR_CONFIG_KEY = "model_dir"
+MODEL_TRAINER_OBJECT_FILE_NAME = "model_trainer_object_file_name"
+
 ARTIFACT_CONFIG_KEY = "artifactory"
 ARTIFACT_DIR_CONFIG_KEY = "artifact"
 

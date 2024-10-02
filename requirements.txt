@@ -3,3 +3,8 @@ numpy
 Flask
 PyYaml
 scikit-learn
+evidently
+matplotlib
+seaborn
+smote
+imblearn
