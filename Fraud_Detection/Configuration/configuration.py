@@ -9,8 +9,6 @@ class Config:
 
     def __init__(self, config_info):
         self.config_info = config_info
-        # self.config_info = read_yaml_file(self.config_file_path)
-
 
     def data_ingestion(self):
         try: 

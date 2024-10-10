@@ -4,7 +4,6 @@ from datetime import datetime
 
 def get_current_time_stamp():
     return str(datetime.now().strftime('%Y-%m-%d-%H-%M-%S'))
-    # return str(datetime.now())
 
 ROOT_DIR = os.getcwd()
 CONFIG_FILE_YAML_KEY = "config_file_yaml"
@@ -39,6 +38,7 @@ MODEL_TRAINER_ARTIFACT_DIR_CONFIG_KEY = "model_trainer_artifact_dir"
 MODEL_TRAINER_DIR_CONFIG_KEY = "model_dir"
 MODEL_TRAINER_OBJECT_FILE_NAME = "model_trainer_object_file_name"
 
+# Artifactory Related Variables
 ARTIFACT_CONFIG_KEY = "artifactory"
 ARTIFACT_DIR_CONFIG_KEY = "artifact"
 

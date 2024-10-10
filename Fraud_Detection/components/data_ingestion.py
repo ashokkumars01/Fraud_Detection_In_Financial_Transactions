@@ -1,4 +1,3 @@
-from Fraud_Detection.Entity.entity import DataIngestionConfig
 from Fraud_Detection.Logger import logging
 import sys, os, shutil
 from Fraud_Detection.Constants.constants import *
@@ -11,6 +10,7 @@ class DataIngestion:
     def __init__(self, data_ingestion_config):
         self.data_ingestion_config = data_ingestion_config
 
+
     def download_dataset(self):
         try:
             logging.info("Started Downloading Dataset")
@@ -18,36 +18,27 @@ class DataIngestion:
             raw_dataset_folder = self.data_ingestion_config.dataset_folder_name
             raw_dataset_name = self.data_ingestion_config.dataset_file_name
             raw_dataset_path = os.path.join(root_dir, raw_dataset_folder, raw_dataset_name)
-
             time_stamp = get_current_time_stamp()
-
             artifact_dir = ARTIFACT_DIR_CONFIG_KEY
-
             new_dataset_folder = self.data_ingestion_config.new_dataset_folder_name
-
             new_dataset_path = os.path.join(root_dir, artifact_dir, new_dataset_folder, time_stamp)
-
             os.makedirs(new_dataset_path, exist_ok=True)
-
             shutil.copy(raw_dataset_path, new_dataset_path)
-
             new_dataset_path = os.path.join(new_dataset_path, "creditcard.csv")
-
             logging.info("Downloading Dataset Completed")
 
             return new_dataset_path
+        
         except Exception as e:
             logging.error("Error at Downloading Dataset ", e)
             
-    
-    def split_data_train_test(self):
+
+    def split_data_train_test(self, dataset_path):
         try:
             logging.info("Started Train and Test Data Split")
-            df = pd.read_csv(self.download_dataset())
-
+            df = pd.read_csv(dataset_path)
             X = df.drop(['Class', 'Time'], axis=1)
             y = df['Class']
-
             split = StratifiedShuffleSplit(n_splits=1, test_size=0.2, random_state=42)
 
             for train_index, test_index in split.split(X, y):
@@ -56,7 +47,6 @@ class DataIngestion:
 
             train_data = pd.concat([X_train, y_train], axis=1)
             test_data = pd.concat([X_test, y_test], axis=1)
-
             root_dir = ROOT_DIR
             artifact_dir = ARTIFACT_DIR_CONFIG_KEY
             train_test_dir = self.data_ingestion_config.train_test_data
@@ -65,22 +55,18 @@ class DataIngestion:
             test_dir = self.data_ingestion_config.test_dir
             train = "train.csv"
             test = "test.csv"
-
             train_path = os.path.join(root_dir, artifact_dir, train_test_dir, time_stamp, train_dir)
             test_path = os.path.join(root_dir, artifact_dir, train_test_dir, time_stamp, test_dir)
-
             os.makedirs(train_path, exist_ok=True)
             os.makedirs(test_path, exist_ok=True)
-
             train_data_path = os.path.join(train_path, train)
             test_data_path = os.path.join(test_path, test)
-
             train_data.to_csv(train_data_path, index=False)
             test_data.to_csv(test_data_path, index=False)
-
             logging.info("Train and Test Data Split Completed")
 
             return train_data_path, test_data_path
+        
         except Exception as e:
             logging.error("Error at Train and Test Data Split ", e)
 
